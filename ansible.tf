@@ -4,3 +4,10 @@ resource "null_resource" "install_ansible" {
   }
   depends_on = [google_container_cluster.gke]
 }
+
+resource "null_resource" "run_ansible_playbook" {
+  provisioner "local-exec" {
+    command = "ansible-playbook --help"
+  }
+  depends_on = [null_resource.install_ansible]
+} 
