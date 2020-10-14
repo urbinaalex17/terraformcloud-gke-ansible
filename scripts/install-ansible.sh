@@ -1,2 +1,3 @@
 #!/bin/bash
-python3 --version
+python -m pip install --user ansible openshift
+ansible-galaxy collection install community.kubernetes
