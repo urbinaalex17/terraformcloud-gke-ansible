@@ -1,7 +1,6 @@
 resource "null_resource" "install_ansible" {
   provisioner "local-exec" {
-    #command = "lsb_release -a ; chmod +x scripts/install-ansible.sh ; ./scripts/install-ansible.sh"
-    command = "pip3 --version"
+    command = "chmod +x scripts/install-ansible.sh ; ./scripts/install-ansible.sh"
   }
   triggers = {
       build_number = "${timestamp()}"
