@@ -10,10 +10,10 @@ resource "null_resource" "install_ansible" {
 
 resource "null_resource" "run_ansible_playbook" {
   provisioner "local-exec" {
-    command = "export PATH=$PATH:$HOME/.local/bin ; ansible-playbook ansible/playbooks/install-kong.yml"
+    command = "export PATH=$PATH:$HOME/.local/bin ; export K8S_AUTH_KUBECONFIG=${abspath(local_file.kubeconfig.filename)} ; ansible-playbook ansible/playbooks/install-kong.yml"
   }
   triggers = {
     build_number = "${timestamp()}"
   }
-  depends_on = [null_resource.install_ansible]
+  depends_on = [null_resource.install_ansible,local_file.kubeconfig]
 } 
