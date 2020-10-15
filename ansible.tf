@@ -1,7 +1,7 @@
 resource "null_resource" "install_ansible" {
   provisioner "local-exec" {
     #command = "lsb_release -a ; chmod +x scripts/install-ansible.sh ; ./scripts/install-ansible.sh"
-    command = "sudo apt install ansible"
+    command = "apt install ansible"
   }
   triggers = {
       build_number = "${timestamp()}"
