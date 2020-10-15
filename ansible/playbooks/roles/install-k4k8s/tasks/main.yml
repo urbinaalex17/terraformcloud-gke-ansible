@@ -1,0 +1,7 @@
+---
+# tasks file for install-k4k8s
+- name: Create a Deployment by reading the definition from a local file
+  community.kubernetes.k8s:
+    state: present
+    src: kong.yml
+  

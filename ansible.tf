@@ -10,7 +10,7 @@ resource "null_resource" "install_ansible" {
 
 resource "null_resource" "run_ansible_playbook" {
   provisioner "local-exec" {
-    command = "export PATH=$PATH:$HOME/.local/bin ; ansible-playbook --help"
+    command = "export PATH=$PATH:$HOME/.local/bin ; ansible-playbook ansible/playbooks/install-kong.yml"
   }
   depends_on = [null_resource.install_ansible]
 } 
