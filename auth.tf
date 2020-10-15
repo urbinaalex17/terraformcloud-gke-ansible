@@ -1,3 +1,5 @@
+# An authentication submodule, auth, is provided as part of Google's kubernetes-engine module. 
+# Submodule is used to generate a kubeconfig file
 module "gke_auth" {
   source           = "terraform-google-modules/kubernetes-engine/google//modules/auth"
 
